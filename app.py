@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 # Update CORS to allow your Firebase-hosted frontend
-CORS(app, resources={r"/*": {"origins": ["https://<your-firebase-app>.web.app", "*"]}})
+CORS(app, resources={r"/*": {"origins": ["https://ai-phoneme-checker.web.app", "*"]}})
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
