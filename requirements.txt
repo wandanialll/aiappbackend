@@ -11,4 +11,4 @@ Werkzeug==3.0.4
 pydub==0.25.1 
 soundfile==0.12.1 
 gunicorn==21.2.0
-kokoro==0.9.4
+kokoro
