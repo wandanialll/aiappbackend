@@ -1,0 +1,13 @@
+Flask==2.3.3 
+flask-cors==4.0.1
+whisper==1.1.10 
+g2p-en==2.1.0 
+librosa==0.10.2 
+transformers==4.45.2 
+torchaudio==2.5.1 
+torch==2.5.1 
+pandas==2.2.3 
+Werkzeug==3.0.4 
+pydub==0.25.1 
+soundfile==0.12.1 
+gunicorn==21.2.0
