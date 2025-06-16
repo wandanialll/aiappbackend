@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     g++ \
     libblas-dev \
     liblapack-dev \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory

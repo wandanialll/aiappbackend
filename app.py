@@ -19,6 +19,9 @@ import soundfile as sf
 from kokoro import KPipeline
 import time
 import nltk
+import spacy
+
+nlp = spacy.load("en_core_web_sm")
 
 nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
 
