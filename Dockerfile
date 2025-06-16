@@ -1,28 +1,27 @@
-```dockerfile
-# Use an official Python runtime as a parent image
-FROM python:3.10-slim
+FROM python:3.11-slim
+
+# Install system dependencies for blis and other packages
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    libblas-dev \
+    liblapack-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    espeak-ng \
-    libespeak-ng-dev \
-    ffmpeg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy requirements.txt and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code
+# Copy application files
 COPY . .
 
-# Expose port (Render assigns dynamically, but specify for clarity)
-EXPOSE 5000
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
-```
+# Install gunicorn
+RUN pip install gunicorn
+
+# Expose port (Render will override this with its PORT env variable)
+EXPOSE 8000
+
+# Command to run the app
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
