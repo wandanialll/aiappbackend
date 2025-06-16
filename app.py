@@ -18,6 +18,9 @@ from pydub import AudioSegment
 import soundfile as sf
 from kokoro import KPipeline
 import time
+import nltk
+
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)

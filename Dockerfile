@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Install system dependencies for blis and other packages
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
@@ -20,8 +20,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install gunicorn
 RUN pip install gunicorn
 
-# Expose port (Render will override this with its PORT env variable)
-EXPOSE 8000
+# Expose dynamic port
+EXPOSE $PORT
 
-# Command to run the app
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
+# Run gunicorn with single worker and increased timeout
+CMD ["sh", "-c", "gunicorn --workers=1 --timeout 120 --bind 0.0.0.0:$PORT app:app"]
