@@ -1,6 +1,6 @@
 Flask==2.3.3 
 flask-cors==4.0.1
-whisper==1.1.10 
+openai-whisper 
 g2p-en==2.1.0 
 librosa==0.10.2 
 transformers==4.45.2 
