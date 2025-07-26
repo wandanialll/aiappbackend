@@ -78,3 +78,9 @@ After processing all reference phonemes, the algorithm checks for unmatched pred
 **Installation**
 
 Install the dependencies from the _requirements.txt_ and make sure to also install Kokoro TTS, which **may** require you to run the program in Linux or WSL if on Windows.
+
+Update the following line :
+
+CORS(app, resources={r"/*": {"origins": ["https://ai-phoneme-checker.web.app", "*"]}})
+
+According to your frontend URL or remove if hosting locally.
